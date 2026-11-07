@@ -590,3 +590,13 @@ button:active {
     }
 
 }
+
+.sender-name {
+    margin-top: 15px;
+    color: gold;
+    font-size: 22px;
+    font-style: italic;
+    letter-spacing: 2px;
+    text-shadow: 0 0 15px orange;
+    animation: goldGlow 2s infinite alternate;
+}
