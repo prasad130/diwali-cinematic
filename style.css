@@ -1,0 +1,592 @@
+/* =====================================
+   1. GLOBAL SETTINGS
+===================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    overflow: hidden;
+    background: #050817;
+    font-family: Georgia, serif;
+}
+
+
+/* =====================================
+   2. ANIMATED CANVAS
+===================================== */
+
+canvas {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 5;
+    pointer-events: none;
+}
+
+
+/* =====================================
+   3. INTRODUCTION SCREEN
+===================================== */
+
+.intro {
+    position: fixed;
+    inset: 0;
+    z-index: 10;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+
+    background: rgba(0, 0, 0, 0.20);
+
+    color: white;
+
+    padding: 20px;
+}
+
+.intro-diya {
+    font-size: 90px;
+
+    animation: diyaGlow 2s infinite alternate;
+}
+
+@keyframes diyaGlow {
+
+    from {
+        filter: drop-shadow(0 0 10px orange);
+        transform: scale(1);
+    }
+
+    to {
+        filter: drop-shadow(0 0 45px gold);
+        transform: scale(1.15);
+    }
+
+}
+
+.intro h1 {
+    font-size: clamp(35px, 6vw, 65px);
+
+    color: gold;
+
+    margin: 20px;
+
+    text-shadow:
+        0 0 10px orange,
+        0 0 30px gold;
+
+    animation: titleReveal 2s ease;
+}
+
+.intro p {
+    font-size: 19px;
+
+    color: #ffe6ad;
+
+    margin-bottom: 30px;
+
+    letter-spacing: 1px;
+}
+
+
+/* =====================================
+   4. START BUTTON
+===================================== */
+
+button {
+    padding: 16px 38px;
+
+    background: linear-gradient(
+        45deg,
+        #ff8c00,
+        #ffd700
+    );
+
+    border: 2px solid gold;
+
+    border-radius: 40px;
+
+    color: #321000;
+
+    font-size: 18px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: all 0.4s ease;
+
+    box-shadow: 0 0 20px rgba(255, 165, 0, 0.5);
+}
+
+button:hover {
+    transform: scale(1.1);
+
+    box-shadow: 0 0 40px gold;
+
+    background: gold;
+}
+
+button:active {
+    transform: scale(0.95);
+}
+
+
+/* =====================================
+   5. HIDE ELEMENTS
+===================================== */
+
+.hidden {
+    display: none !important;
+}
+
+
+/* =====================================
+   6. DIWALI WISH SCREEN
+===================================== */
+
+.wish-screen {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 6;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    text-align: center;
+
+    padding: 20px;
+
+    background: rgba(0, 0, 0, 0.15);
+
+    color: white;
+
+    animation: wishReveal 2s ease;
+}
+
+.wish-content {
+    position: relative;
+
+    z-index: 7;
+
+    max-width: 650px;
+
+    width: 100%;
+
+    padding: 20px;
+}
+
+
+/* =====================================
+   7. HAPPY DIWALI TITLE
+===================================== */
+
+.wish-content h1 {
+    font-size: clamp(35px, 6vw, 60px);
+
+    color: gold;
+
+    margin-bottom: 25px;
+
+    text-shadow:
+        0 0 10px orange,
+        0 0 25px gold,
+        0 0 45px orange;
+
+    animation: titleReveal 2s ease;
+}
+
+
+/* =====================================
+   8. PHOTO FRAME
+===================================== */
+
+.photo-frame {
+    width: 210px;
+
+    height: 210px;
+
+    margin: auto;
+
+    border: 5px solid gold;
+
+    border-radius: 50%;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 0 20px orange,
+        0 0 50px gold;
+
+    animation: photoReveal 2s ease;
+
+    position: relative;
+}
+
+.photo-frame img {
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+    display: block;
+}
+
+
+/* =====================================
+   9. WISH MESSAGE
+===================================== */
+
+.wish-content h2 {
+    color: #ffdf91;
+
+    margin-top: 25px;
+
+    font-size: 23px;
+
+    text-shadow: 0 0 15px orange;
+}
+
+.wish-content p {
+    margin-top: 18px;
+
+    line-height: 1.9;
+
+    font-size: 18px;
+
+    color: #fff1d1;
+
+    letter-spacing: 0.5px;
+}
+
+.gold-text {
+    color: gold !important;
+
+    text-shadow:
+        0 0 10px orange,
+        0 0 25px gold;
+
+    animation: goldGlow 2s infinite alternate;
+}
+
+
+/* =====================================
+   10. ANIMATIONS
+===================================== */
+
+@keyframes wishReveal {
+
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+}
+
+@keyframes photoReveal {
+
+    from {
+        opacity: 0;
+        transform: scale(0) rotate(-180deg);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1) rotate(0);
+    }
+
+}
+
+@keyframes titleReveal {
+
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+@keyframes goldGlow {
+
+    from {
+        text-shadow: 0 0 10px orange;
+    }
+
+    to {
+        text-shadow: 0 0 30px gold;
+    }
+
+}
+
+
+/* =====================================
+   11. MOBILE RESPONSIVENESS
+===================================== */
+
+@media (max-width: 768px) {
+
+    .intro h1 {
+        font-size: 38px;
+    }
+
+    .intro-diya {
+        font-size: 75px;
+    }
+
+    .intro p {
+        font-size: 16px;
+    }
+
+    .wish-content h1 {
+        font-size: 38px;
+    }
+
+    .photo-frame {
+        width: 170px;
+        height: 170px;
+    }
+
+    .wish-content h2 {
+        font-size: 19px;
+    }
+
+    .wish-content p {
+        font-size: 15px;
+        line-height: 1.7;
+    }
+
+}
+
+
+@media (max-width: 400px) {
+
+    .intro h1 {
+        font-size: 30px;
+    }
+
+    .photo-frame {
+        width: 145px;
+        height: 145px;
+    }
+
+    .wish-content h1 {
+        font-size: 32px;
+    }
+
+    .wish-content h2 {
+        font-size: 17px;
+    }
+
+    .wish-content p {
+        font-size: 14px;
+    }
+
+    button {
+        padding: 13px 25px;
+        font-size: 16px;
+    }
+
+}
+
+
+/* =====================================
+   12. REDUCED MOTION ACCESSIBILITY
+===================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+    }
+
+}
+
+/* =====================================
+   MOBILE OPTIMIZATION
+===================================== */
+
+@media screen and (max-width: 600px) {
+
+    html, body {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+    }
+
+    .intro {
+        padding: 15px;
+    }
+
+    .intro-diya {
+        font-size: 65px;
+    }
+
+    .intro h1 {
+        font-size: 32px;
+        margin: 15px 0;
+    }
+
+    .intro p {
+        font-size: 14px;
+        line-height: 1.6;
+        max-width: 300px;
+    }
+
+    button {
+        padding: 13px 26px;
+        font-size: 15px;
+    }
+
+    canvas {
+        width: 100%;
+        height: 100%;
+    }
+
+    /* Wish screen */
+
+    .wish-screen {
+        padding: 12px;
+        overflow-y: auto;
+    }
+
+    .wish-content {
+        width: 100%;
+        max-width: 380px;
+        padding: 10px;
+    }
+
+    .wish-content h1 {
+        font-size: 34px;
+        margin-bottom: 18px;
+    }
+
+    .photo-frame {
+        width: 145px;
+        height: 145px;
+        border-width: 4px;
+    }
+
+    .wish-content h2 {
+        font-size: 18px;
+        margin-top: 18px;
+    }
+
+    .wish-content p {
+        font-size: 14px;
+        line-height: 1.7;
+        margin-top: 12px;
+    }
+
+    .gold-text {
+        font-size: 18px !important;
+    }
+}
+
+
+/* =====================================
+   VERY SMALL MOBILE SCREENS
+===================================== */
+
+@media screen and (max-width: 380px) {
+
+    .intro h1 {
+        font-size: 27px;
+    }
+
+    .wish-content h1 {
+        font-size: 29px;
+    }
+
+    .photo-frame {
+        width: 125px;
+        height: 125px;
+    }
+
+    .wish-content h2 {
+        font-size: 16px;
+    }
+
+    .wish-content p {
+        font-size: 13px;
+    }
+
+}
+
+
+/* =====================================
+   LANDSCAPE MOBILE
+===================================== */
+
+@media screen and (max-height: 500px) and (orientation: landscape) {
+
+    .intro-diya {
+        font-size: 40px;
+    }
+
+    .intro h1 {
+        font-size: 28px;
+        margin: 8px;
+    }
+
+    .intro p {
+        margin-bottom: 12px;
+    }
+
+    .wish-screen {
+        overflow-y: auto;
+    }
+
+    .wish-content h1 {
+        font-size: 30px;
+        margin-bottom: 10px;
+    }
+
+    .photo-frame {
+        width: 100px;
+        height: 100px;
+    }
+
+    .wish-content h2 {
+        margin-top: 10px;
+        font-size: 16px;
+    }
+
+    .wish-content p {
+        font-size: 13px;
+        margin-top: 8px;
+    }
+
+}
